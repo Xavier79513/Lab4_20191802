@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            background: #DFAF12;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: rgba(0,0,0,0.7);
+            width: 100%;
+            position: absolute;
+            z-index: 100;
+        }
+
+        nav {
+            float: left;
+        }
+
+        nav ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            float: left;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        nav ul li a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+        nav ul li:hover {
+            background: #eca023;
+        }
+        .contenedor{
+
+            display: flex;
+
+            justify-content:center;
+
+            flex-wrap:wrap;
+
+            gap: 16px;
+
+        }
+
+        .tarjeta{
+
+            display:flex;
+
+            flex-direction:column;
+
+            justify-content:space-between;
+
+            width: auto;
+
+            border: 1px solid lightgray;
+
+            box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+
+            border-radius:15px;
+
+            font-family: sans-serif;
+
+        }
+
+        .titulo{
+
+            font-size: 24px;
+
+            padding: 10px 10px 0 10px;;
+
+        }
+
+        .cuerpo{
+
+            padding: 10px;
+
+            flex: 1 1 100%;
+
+        }
+
+        .pie{
+
+            background: #6699ff;
+
+            border-radius:0 0 15px 15px;
+
+            padding: 10px;
+
+            text-align:center;
+
+        }
+
+        .pie a{
+
+            text-decoration: none;
+
+            color: white;
+
+        }
+
+        .pie a:after {
+
+            position: absolute;
+
+            top: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            left: 0;
+
+            z-index: 1;
+
+            content: ""
+
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/principal/index1">Inicio</a></li>
+                <li><a href="/principal/catalogo">Catálogo</a></li>
+                <li><a href="/principal/entretenimiento">Entretenimiento</a></li>
+                <li><a href="#">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    </br>
+    </br>
+    </br>
+    </br>
+    <div class="col-first">
+        <h2>Bienvenidos a nuestro catálogo de Flores</h2>
+    </div>
+    <div class="contenedor">
+        <div class="tarjeta">
+            <h2 class="titulo">Oferta Base</h2>
+            <div class="cuerpo">
+                <img src="/images/f1.jpg" alt="muestra">
+                <p>lorem ipsum</p>
+            </div>
+            <div class="pie"><a href="#">Más información</a></div>
+        </div>
+        <div class="tarjeta">
+            <h2 class="titulo">Oferta Standard</h2>
+            <div class="cuerpo">
+                <img src="/images/f3.jpg" alt="muestra">
+                <p>lorem ipsum</p>
+                <p>lorem ipsum</p>
+                <p>lorem ipsum</p>
+            </div>
+            <div class="pie">
+                <a href="#">Más información</a>
+            </div>
+        </div>
+        <div class="tarjeta">
+            <h2 class="titulo">Oferta Premium</h2>
+            <div class="cuerpo">
+                <img src="/images/f4.jpg" alt="muestra">
+                <p>lorem ipsum</p>
+            </div>
+            <div class="pie">
+                <a href="#">Más información</a>
+            </div>
+        </div>
+    </div>
+    <div class="contenedor">
+        <div class="tarjeta">
+            <h2 class="titulo">Oferta Base</h2>
+            <div class="cuerpo">
+                <img src="/images/f6.jpg" alt="muestra">
+                <p>lorem ipsum</p>
+            </div>
+            <div class="pie"><a href="#">Más información</a></div>
+        </div>
+        <div class="tarjeta">
+            <h2 class="titulo">Oferta Standard</h2>
+            <div class="cuerpo">
+                <img src="/images/f5.jpg" alt="muestra">
+                <p>lorem ipsum</p>
+                <p>lorem ipsum</p>
+                <p>lorem ipsum</p>
+            </div>
+            <div class="pie">
+                <a href="#">Más información</a>
+            </div>
+        </div>
+        <div class="tarjeta">
+            <h2 class="titulo">Oferta Premium</h2>
+            <div class="cuerpo">
+                <img src="/images/f7.jpg" alt="muestra">
+                <p>lorem ipsum</p>
+            </div>
+            <div class="pie">
+                <a href="#">Más información</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
