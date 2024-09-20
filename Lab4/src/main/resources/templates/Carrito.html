@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Catálogo de Flores</title>
+    <title>Carrito</title>
     <style>
         body {
             background: #DFAF12;
@@ -117,28 +117,29 @@
         </ul>
     </nav>
 </header>
-</br>
-</br>
-</br>
-</br>
-<div class="contenedor">
-    <!-- Iterar sobre la lista de flores -->
-    <div class="tarjeta" th:each="flor : ${flores}">
-        <img th:src="@{${flor.imagenUrl}}" th:alt="${flor.nombre}">
+<br><br><br><br>
+<div class="col-first">
+    <h2>Estás en el Carrito</h2>
+</div>
+
+<div class="contenedor" th:if="${carrito != null}">
+    <!-- Iterar sobre la lista de flores en el carrito -->
+    <div class="tarjeta" th:each="flor : ${carrito}">
         <h2 class="titulo" th:text="${flor.nombre}"></h2>
         <div class="cuerpo">
+            <img th:src="@{${flor.imagenUrl}}" th:alt="${flor.nombre}" />
             <p th:text="${flor.descripcion}"></p>
-            <p style="color: darkred">Precio: $<span th:text="${flor.precio}"></span></p>
+            <p>Precio: $<span th:text="${flor.precio}"></span></p>
         </div>
         <div class="pie">
-            <a th:href="@{/carrito/agregar/{id}(id=${flor.id})}" class="btn btn-primary">Agregar</a>
-            <a th:href="@{/carrito/quitar/{id}(id=${flor.id})}" class="btn btn-danger">Quitar</a>
+            <a th:href="@{/carrito/quitar/{id}(id=${flor.id})}" class="btn btn-danger">Quitar del carrito</a>
             <a th:href="@{/carrito/comprar/{id}(id=${flor.id})}" class="btn btn-success">Comprar</a>
         </div>
     </div>
 </div>
+
 <footer>
-    <p>Total de flores disponibles: <span th:text="${totalFlores}"></span></p>
+    <p>Total de artículos en el carrito: <span th:text="${#lists.size(carrito)}"></span></p>
 </footer>
 </body>
 </html>

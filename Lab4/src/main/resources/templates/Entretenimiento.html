@@ -1,10 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Inicio | Primavera Eterna</title>
+
+    <style>
+
+        body {
+            background: #DFAF12;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: rgba(0,0,0,0.7);
+            width: 100%;
+            position: absolute;
+            z-index: 100;
+        }
+
+        nav {
+            float: left;
+        }
+
+        nav ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            float: left;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        nav ul li a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+        nav ul li:hover {
+            background: #eca023;
+        }
+        .tablero {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Ajustar para más columnas si se desea */
+            gap: 20px;
+            justify-items: center;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        .carta {
+            width: 150px;
+            height: 200px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: white;
+        }
+        .carta img {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+        }
+        .carta .nombre {
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .formulario {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .formulario input, .formulario button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        .lista-usuarios {
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        .lista-usuarios table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .lista-usuarios th, .lista-usuarios td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+    </style>
 </head>
 <body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/principal/index1">Inicio</a></li>
+                <li><a href="/principal/catalogo">Catálogo</a></li>
+                <li><a href="/entretenimiento/entretenimientov">Entretenimiento</a></li>
+                <li><a href="/carrito/carritov">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    </br>
+    </br>
+    </br>
+    </br>
+
+    <h1>Jardín de Memoria</h1>
+
+    <!-- Formulario para ingresar usuario y puntuación -->
+    <div class="formulario">
+        <form th:action="@{/entretenimiento/guardarPuntuacion}" method="post">
+            <label>
+                <input type="text" name="usuario" placeholder="Nickname" required>
+            </label>
+            <label>
+                <input type="number" name="puntuacion" placeholder="Puntuación" required>
+            </label>
+            <button type="submit">Guardar Puntuación</button>
+        </form>
+    </div>
+
+    <!-- Lista de usuarios ordenados por puntaje -->
+    <div class="lista-usuarios">
+        <h2>Usuarios y Puntajes</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Puntuación</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="jugador : ${jugadores}">
+                <td th:text="${jugador.nickname}"></td>
+                <td th:text="${jugador.puntuacion}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tablero de cartas -->
+    <div class="tablero">
+        <div class="carta" th:each="flor : ${flores}">
+            <img th:src="@{${flor.imagenUrl}}" th:alt="${flor.nombre}">
+            <div class="nombre" th:text="${flor.tipo + ' ' + flor.color}"></div>
+        </div>
+    </div>
 
 </body>
 </html>
