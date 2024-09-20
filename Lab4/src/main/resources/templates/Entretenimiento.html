@@ -7,7 +7,7 @@
     <style>
 
         body {
-            background: #DFAF12;
+            background: #d67766;
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -98,62 +98,62 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/principal/index1">Inicio</a></li>
-                <li><a href="/principal/catalogo">Catálogo</a></li>
-                <li><a href="/entretenimiento/entretenimientov">Entretenimiento</a></li>
-                <li><a href="/carrito/carritov">Carrito</a></li>
-            </ul>
-        </nav>
-    </header>
-    </br>
-    </br>
-    </br>
-    </br>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/principal/index1">Inicio</a></li>
+            <li><a href="/principal/catalogo">Catálogo</a></li>
+            <li><a href="/entretenimiento/entretenimientov">Entretenimiento</a></li>
+            <li><a href="/carrito/carritov">Carrito</a></li>
+        </ul>
+    </nav>
+</header>
+</br>
+</br>
+</br>
+</br>
 
-    <h1>Jardín de Memoria</h1>
+<h1 style="color: yellow">Jardín de Memoria</h1>
 
-    <!-- Formulario para ingresar usuario y puntuación -->
-    <div class="formulario">
-        <form th:action="@{/entretenimiento/guardarPuntuacion}" method="post">
-            <label>
-                <input type="text" name="usuario" placeholder="Nickname" required>
-            </label>
-            <label>
-                <input type="number" name="puntuacion" placeholder="Puntuación" required>
-            </label>
-            <button type="submit">Guardar Puntuación</button>
-        </form>
+<!-- Formulario para ingresar usuario y puntuación -->
+<div class="formulario">
+    <form th:action="@{/entretenimiento/guardarPuntuacion}" method="post">
+        <label>
+            <input type="text" name="usuario" placeholder="Nickname" required>
+        </label>
+        <label>
+            <input type="number" name="puntuacion" placeholder="Puntuación" required>
+        </label>
+        <button type="submit">Guardar Puntuación</button>
+    </form>
+</div>
+
+<!-- Lista de usuarios ordenados por puntaje -->
+<div class="lista-usuarios">
+    <h2>Usuarios y Puntajes</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Puntuación</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="jugador : ${jugadores}">
+            <td th:text="${jugador.nickname}"></td>
+            <td th:text="${jugador.puntuacion}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Tablero de cartas -->
+<div class="tablero">
+    <div class="carta" th:each="flor : ${flores}">
+        <img th:src="@{${flor.imagenUrl}}" th:alt="${flor.nombre}">
+
     </div>
-
-    <!-- Lista de usuarios ordenados por puntaje -->
-    <div class="lista-usuarios">
-        <h2>Usuarios y Puntajes</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Usuario</th>
-                <th>Puntuación</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="jugador : ${jugadores}">
-                <td th:text="${jugador.nickname}"></td>
-                <td th:text="${jugador.puntuacion}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Tablero de cartas -->
-    <div class="tablero">
-        <div class="carta" th:each="flor : ${flores}">
-            <img th:src="@{${flor.imagenUrl}}" th:alt="${flor.nombre}">
-            <div class="nombre" th:text="${flor.tipo + ' ' + flor.color}"></div>
-        </div>
-    </div>
+</div>
 
 </body>
 </html>

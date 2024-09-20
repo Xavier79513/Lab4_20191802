@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego Terminado</title>
+    body {
+    background: #DFAF12;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    }
+
+    header {
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    }
+
+    nav {
+    float: left;
+    }
+
+    nav ul {
+    list-style: none;
+    overflow: hidden;
+    }
+
+    nav ul li {
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    }
+    nav ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    }
+    nav ul li:hover {
+    background: #eca023;
+    }
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/principal/index1">Inicio</a></li>
+            <li><a href="/principal/catalogo">Catálogo</a></li>
+            <li><a href="/entretenimiento/entretenimientov">Entretenimiento</a></li>
+            <li><a href="/carrito/carritov">Carrito</a></li>
+        </ul>
+    </nav>
+</header>
+</br>
+</br>
+</br>
+</br>
+<h1>¡Felicidades, <span th:text="${nombreUsuario}"></span>!</h1>
+<p>Tu puntaje final fue: <span th:text="${puntaje}"></span></p>
+<a href="/principal/catalogo">Volver al catálogo</a>
+</body>
+</html>
